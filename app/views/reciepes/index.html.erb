@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>All Food Site</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<nav class="navbar navbar-inverse">
+
+  <div class="container-fluid">
+    <div class="col-md-4">
+      <img style="height:55px;width: 150px;"<%= image_tag("/assets/logo.png") %>>
+    </div>
+    <div class="col-md-8">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><a href="/reciepes/new">Add Your Reciepe</a></li>
+          <li class="active"><a href="/reciepes">Show All Reciepe</a></li>
+        </ul>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+
+
+        <% if user_signed_in? %>
+          <li> <%= link_to "Sign out" ,destroy_user_session_path, method: :delete  %></li>
+
+        <%else %>
+
+          <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <%end %>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<body>
+<div class="container">
+
+  <h2>List of All Reciepes</h2>
+
+  <% @list_of_reciepes.each do |reciepe| %>
+
+    <% for i in 1..1 %>
+      <div class="col-lg-4">
+        <div class="container">
+
+          <h3><%= reciepe.title  %></h3>
+          <div class="card" style="width:400px">
+            <img class="card-img-top" src="single-product1.jpg" alt="Card image" style="width:100%">
+            <div class="card-body">
+              <h4 class="card-title">by <%= reciepe.madeMy  %> </h4>
+              <p class="card-text"> <%= reciepe.description  %> </p>
+              <a href="/reciepes/<%= reciepe.id %>" class="btn btn-primary">See The Reciepe</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <% end %>
+
+
+  <% end %>
+
+
+
+</div>
+
+
+</body>
+</html>
+
