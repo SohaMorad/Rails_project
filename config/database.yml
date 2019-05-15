@@ -22,4 +22,9 @@ test:
 
 production:
   <<: *default
-  database: db/production.pg
+  #database: db/production.pg
+  host:  ec2-54-227-245-146.compute-1.amazonaws.com
+  database: dc02dlbg48n8pv
+  user:  uoobpxyvovncud
+  port:  5432
+  password: 44de35144c984e3d6374ce8f1b5b99cf46c14d222f6690a63990acb76f804c34
