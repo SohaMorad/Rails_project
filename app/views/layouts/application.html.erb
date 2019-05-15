@@ -4,15 +4,52 @@
     <title>AllFood</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <nav class="navbar navbar-inverse">
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="col-md-4">
+        <img style="height:55px;width: 150px;"<%= image_tag("/assets/logo.png") %>>
+      </div>
+
+        <div class="col-md-8">
+          <div class="navbar-header">
+            <ul class="nav navbar-nav">
+              <% if user_signed_in? %>
+              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="/reciepes/new">Add Your Reciepe</a></li>
+              <li class="active"><a href="/reciepes">Show All Reciepe</a></li>
+                <li> <%= link_to "Sign out" ,destroy_user_session_path, method: :delete  %></li>
+                <li><h5 style="color: white;">Welcome <%= current_user.email %></h5></li>
+            </ul>
+          </div>
+
+          <%else %>
+
+
+            <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+             <li><h4 style="color:orangered; text-align: center;">You have to sign in to see and add all reciepes</h4></li>
+              <%end %>
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+
+
+
+  <%= yield %>
+
+
   </body>
 </html>
