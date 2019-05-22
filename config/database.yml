@@ -23,8 +23,8 @@ test:
 production:
   <<: *default
   #database: db/production.pg
-  Host:	lgg2gx1ha7yp2w0k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
-  Username:	xqs59qqcjyhxgthz
-  Password:	mb9tk0iy2ppblwex
-  Port: 3306
-  Database:	zkm07p4hc3ji89rr
+  host:	lgg2gx1ha7yp2w0k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
+  username:	xqs59qqcjyhxgthz
+  password:	mb9tk0iy2ppblwex
+  port: 3306
+  database:	zkm07p4hc3ji89rr
