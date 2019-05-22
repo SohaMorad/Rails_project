@@ -5,28 +5,26 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql
+  adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.mysql
+  database: db/development.mysql2
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.mysql
+  database: db/test.mysql2
 
 production:
   <<: *default
   #database: db/production.pg
-  host:  ec2-54-227-245-146.compute-1.amazonaws.com
-  database: dc02dlbg48n8pv
-  user:  uoobpxyvovncud
-  port:  5432
-  password: 44de35144c984e3d6374ce8f1b5b99cf46c14d222f6690a63990acb76f804c34
-  url: postgres://uoobpxyvovncud:44de35144c984e3d6374ce8f1b5b99cf46c14d222f6690a63990acb76f804c34@ec2-54-227-245-146.compute-1.amazonaws.com:5432/dc02dlbg48n8pv
-  heroku CLI: heroku pg:psql postgresql-convex-29422 --app soha123
+  Host:	lgg2gx1ha7yp2w0k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
+  Username:	xqs59qqcjyhxgthz
+  Password:	mb9tk0iy2ppblwex
+  Port: 3306
+  Database:	zkm07p4hc3ji89rr
